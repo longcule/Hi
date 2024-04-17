@@ -3,7 +3,7 @@ Xin chào! Tôi xin lỗi về sự nhầm lẫn trước đó. Dưới đây l�
 **Tài liệu bắt buộc**  
   
 * Lựa chọn 1: Lập trình căn bản với C  
-    *[Bài giảng của giáo viên](https://example.com)  
+    [*Bài giảng của giáo viên](https://example.com)  
     *[Brian W. Kernighan và Dennis M. Ritchie, The C programming language, Prentice Hall 1988.](https://example.com)  
 * Lựa chọn 2: Lập trình căn bản với C++  
     *[Bài giảng của giáo viên](https://example.com)  
