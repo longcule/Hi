@@ -1,10 +1,10 @@
-Danh mục tài liệu tham khảo học phần Quản lý dự án HTTT là:
+**Tài liệu bắt buộc**
 
-Tài liệu bắt buộc
-1. [Bài giảng Quản lý dự án HTTT (cập nhật hàng năm)](https://abc.com)
-2. [Kathy Schwalbe, Information Technology Project Management, Cengage learning 9th edition, 2018.](https://def.com)
-3. [PMI, A Guide to the PROJECT MANAGEMENT BODY OF KNOWLEDGE (PMBOK Guide), 6th Edition, 2017.](https://ghi.com)
-4. [Kenneth Laudon, Jane Laudon, Essentials of Management Information Systems, 14th Edition, Pearson, 2020.](https://kml.com)
+* [Keneth Rosen, dịch giả: Phạm Văn Thiều, Đặng Hữu Thịnh, Toán rời rạc và ứng dụng trong tin học](https://example.com)
+* [Bài tập toán rời rạc của Đỗ Đức Giáo](https://example.com)
 
-Tài liệu tham khảo thêm
-1. [Mark Fuller, Joe Valacich, Joey George, Information Systems Project Management: A process and Team Approach, ISBN: 013145417X, Prentice Hall, 2010.](https://absdfsdfc.com)
+**Tài liệu tham khảo thêm**
+
+* [Miguel A. Lerma. Notes on Discrete Mathematics. 2005.](https://example.com)
+* [John A. Dossey, Albert D. Otto, Lawrence E. Spence: Discrete Mathematics, Pearson, Education, 2006.](https://example.com)
+* [L. Lovasz and K. Vesztergombi: Discrete Mathematics, Lecture Notes, Yale University, Spring 1999.](https://example.com)
