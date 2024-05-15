@@ -13,6 +13,7 @@ Thông tin product lưu trong các bảng: products, product_category,...
 - Sản phẩm sẽ lưu trong wp_posts và wp_postmeta
 - lưu trữ các thông tin chính trong wp_posts
 - Metadata của sản phẩm sẽ lưu trong wp_postmeta
+#### Thông tin bảng wp_posts như sau:
 <table class="widefat">
 
 <tbody><tr style="background:#464646; color:#d7d7d7;">
@@ -208,6 +209,51 @@ Thông tin product lưu trong các bảng: products, product_category,...
 <td>&nbsp;
 </td></tr></tbody></table>
 
+#### Thông tin bảng wp_postmeta như sau:
+<table class="widefat">
+
+<tbody><tr style="background:#464646; color:#d7d7d7;">
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra
+</th></tr>
+<tr>
+<td>meta_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>PRI</td>
+<td>&nbsp;</td>
+<td>auto_increment
+</td></tr>
+<tr>
+<td>post_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>IND</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>meta_key</td>
+<td>varchar(255)</td>
+<td>YES</td>
+<td>IND</td>
+<td>NULL</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>meta_value</td>
+<td>longtext</td>
+<td>YES</td>
+<td>&nbsp;</td>
+<td>NULL</td>
+<td>&nbsp;
+</td></tr></tbody></table>
+
+#### Truy vấn lấy thông tin sản phẩm từ wp_posts
 ![Product Detail](img/product_detail.png)
 ### Customer 
 ![User Detail](img/user.png)
