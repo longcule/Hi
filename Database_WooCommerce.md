@@ -402,6 +402,100 @@ Sản phẩm sẽ lưu trong wp_posts và wp_postmeta
 #### Truy vấn lấy thông tin sản phẩm từ wp_posts
 ![Product Detail](img/product_detail.png)
 ### Customer 
+Customer được lưu trong wp_users và wp_usermeta(chưa thông tin các id)
+#### Bảng wp_users
+<table class="widefat">
+
+<tbody><tr style="background:#464646; color:#d7d7d7;">
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra
+</th></tr>
+<tr>
+<td>ID</td>
+<td>bigint(20) unsigned</td>
+<td>&nbsp;</td>
+<td>PRI</td>
+<td>&nbsp;</td>
+<td>auto_increment
+</td></tr>
+<tr>
+<td>user_login</td>
+<td>varchar(60)</td>
+<td>&nbsp;</td>
+<td>IND</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_pass</td>
+<td>varchar(64)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_nicename</td>
+<td>varchar(50)</td>
+<td>&nbsp;</td>
+<td>IND</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_email</td>
+<td>varchar(100)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_url</td>
+<td>varchar(100)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_registered</td>
+<td>datetime</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0000-00-00 00:00:00</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>user_activation_key</td>
+<td>varchar(60)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>
+</td></tr>
+<tr>
+<td>user_status</td>
+<td>int(11)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>display_name</td>
+<td>varchar(250)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp; </td>
+<td>&nbsp;
+</td></tr></tbody></table>
+
+#### Truy vấn lấy ra thông tin user
 ![User Detail](img/user.png)
 ### Order
 ![Order Detail](img/order_detail.png)
