@@ -6,11 +6,14 @@ Ví dụ:
 Thông tin product lưu trong các bảng: products, product_category,...
 Woocommerce:
 - Ảnh của product được lưu như nào trong database?
+
   Ảnh sẽ được save vào folder trong src và trong wp_posts có trường guid lưu đường dẫn đến ảnh.
+  
 - Category link với product như nào? Viết câu query để lấy ra toàn bộ category name của một products với ID cho trước.
+
   Category link với product thông qua bảng wp_term_relationships khi add product vào category
   Query:
-  Query: ```
+  ```
   SELECT object_id AS product_id, tt.term_id AS category_id, name AS category_name
   FROM wp_term_relationships AS rel
   LEFT JOIN wp_term_taxonomy AS tt ON rel.term_taxonomy_id = tt.term_taxonomy_id
