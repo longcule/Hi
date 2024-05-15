@@ -12,6 +12,7 @@ Woocommerce:
 - Category link với product như nào? Viết câu query để lấy ra toàn bộ category name của một products với ID cho trước.
 
   Category link với product thông qua bảng wp_term_relationships khi add product vào category
+
   Query:
   ```
   SELECT object_id AS product_id, tt.term_id AS category_id, name AS category_name
