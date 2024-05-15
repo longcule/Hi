@@ -8,9 +8,155 @@ Thông tin product lưu trong các bảng: products, product_category,...
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
 
 ### Category
+Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships
+- Lưu trong wp_terms, bảng này lưu thông tin cơ bản của từng danh mục như id, tên, slug(bản thân thiện với url - kiểu đuôi url)
+- wp_term_taxnomy: lưu trữ id danh mục và loại thuật ngữ
+- wp_term_relationships: bảng tạo mối quan hệ giữa sản phẩm và danh mục, có 2 trường object_id là id sản phẩm, term_taxonomy_id là id category.
+#### Bảng wp_terms
+<table class="widefat">
+
+<tbody><tr style="background:#464646; color:#d7d7d7;">
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra
+</th></tr>
+<tr>
+<td>term_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>PRI</td>
+<td>&nbsp;</td>
+<td>auto_increment
+</td></tr>
+<tr>
+<td>name</td>
+<td>varchar(200)</td>
+<td>&nbsp;</td>
+<td>IND</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>slug</td>
+<td>varchar(200)</td>
+<td>&nbsp;</td>
+<td>MUL</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>term_group</td>
+<td>bigint(10)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr></tbody></table>
+
+#### bảng wp_term_taxnomy
+<table class="widefat">
+
+<tbody><tr style="background:#464646; color:#d7d7d7;">
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra
+</th></tr>
+<tr>
+<td>term_taxonomy_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>PRI</td>
+<td>&nbsp;</td>
+<td>auto_increment
+</td></tr>
+<tr>
+<td>term_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>UNI Pt1</td>
+<td>0 </td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>taxonomy</td>
+<td>varchar(32)</td>
+<td>&nbsp;</td>
+<td>UNI Pt2 &amp; IND</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>description</td>
+<td>longtext</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>parent</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>count</td>
+<td>bigint(20)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+</tbody></table>
+
+#### bảng wp_term_relationships
+<table class="widefat">
+
+<tbody><tr style="background:#464646; color:#d7d7d7;">
+<th>Field</th>
+<th>Type</th>
+<th>Null</th>
+<th>Key</th>
+<th>Default</th>
+<th>Extra
+</th></tr>
+<tr>
+<td>object_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>PRI Pt1</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>term_taxonomy_id</td>
+<td>bigint(20)  unsigned</td>
+<td>&nbsp;</td>
+<td>PRI Pt2 &amp; IND</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr>
+<tr>
+<td>term_order</td>
+<td>int(11)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>0</td>
+<td>&nbsp;
+</td></tr></tbody></table>
+
+#### lấy thông tin category trong wp_terms  
 ![category](img/category.png)
 ### Product 
-- Sản phẩm sẽ lưu trong wp_posts và wp_postmeta
+Sản phẩm sẽ lưu trong wp_posts và wp_postmeta
 - lưu trữ các thông tin chính trong wp_posts
 - Metadata của sản phẩm sẽ lưu trong wp_postmeta
 #### Thông tin bảng wp_posts như sau:
