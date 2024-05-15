@@ -5,7 +5,10 @@
 Ví dụ: 
 Thông tin product lưu trong các bảng: products, product_category,...
 ### Category
+![category](img/category.png)
 ### Product 
+![Product Detail](img/product_detail.png)
 ### Customer 
+![User Detail](img/user.png)
 ### Order
 ![Order Detail](img/order_detail.png)
