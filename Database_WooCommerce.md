@@ -4,6 +4,12 @@
 
 Ví dụ: 
 Thông tin product lưu trong các bảng: products, product_category,...
+Woocommerce:
+- Ảnh của product được lưu như nào trong database?
+- Category link với product như nào? Viết câu query để lấy ra toàn bộ category name của một products với ID cho trước.
+- Nêu cách để attribute tạo product variants.
+- Viết câu query xoá sạch order + product
+
 ### Wordpress db
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
 
