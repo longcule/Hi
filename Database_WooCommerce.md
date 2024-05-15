@@ -4,6 +4,9 @@
 
 Ví dụ: 
 Thông tin product lưu trong các bảng: products, product_category,...
+### Wordpress db
+![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
+
 ### Category
 ![category](img/category.png)
 ### Product 
