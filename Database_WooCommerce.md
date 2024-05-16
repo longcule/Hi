@@ -24,6 +24,8 @@ Woocommerce:
 ![query](img/query.png)
 - Nêu cách để attribute tạo product variants.
 - 
+đầu tiên là tạo thuộc tính -> khi thêm thì thuộc tính sẽ được lưu vào bảng wp_term_taxonomy(term_taxonomy_id, term_id, taxonomy(loại term, với atributes thì có pa_ ở đầu),...) và wp_term(term_id, name, slug(kiểu link SEO),...). Khi thêm sản phẩm với và chọn thuộc tính vừa tạo(vd color), trong bảng wp_term_relationships sẽ thêm row mới biểu hiện mối quan hệ của sản phẩm và thuộc tính, gồm có object_id(id sản phẩm) và term_taxonomy_id(id thuộc tính), qua đây biểu hiện được sản phẩm có thuộc tính đó.
+
 - Viết câu query xoá sạch order + product
 Query xóa product:
 ```
@@ -59,7 +61,7 @@ DELETE FROM wp_posts WHERE post_type = 'shop_order_placehold';
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
 
 ### Category
-Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships
+Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships(các bảng này kh chỉ lưu category mà còn có tag hay atributes, gọi chung là term)
 - Lưu trong wp_terms, bảng này lưu thông tin cơ bản của từng danh mục như id, tên, slug(bản thân thiện với url - kiểu đuôi url)
 - wp_term_taxnomy: lưu trữ id danh mục và loại thuật ngữ
 - wp_term_relationships: bảng tạo mối quan hệ giữa sản phẩm và danh mục, có 2 trường object_id là id sản phẩm, term_taxonomy_id là id category.
@@ -207,9 +209,12 @@ Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_r
 #### lấy thông tin category trong wp_terms  
 ![category](img/category.png)
 ### Product 
-Sản phẩm sẽ lưu trong wp_posts và wp_postmeta
+Sản phẩm sẽ lưu trong wp_posts và wp_postmeta và các bảng term(lưu mối liên hệ giữa sản phẩm và term)
 - lưu trữ các thông tin chính trong wp_posts
 - Metadata của sản phẩm sẽ lưu trong wp_postmeta
+Sản phẩm sẽ có 2 loại, product và Variable Products
+- Product: Các sản phẩm đơn giản có một SKU, được vận chuyển và không có biến thể/tùy chọn. Ví dụ, một cuốn sách.
+- Variable Products: Các sản phẩm đa dạng có thể có nhiều biến thể/tùy chọn, mỗi biến thể có thể có SKU hoặc giá khác nhau. Ví dụ: một bộ quần áo có nhiều màu sắc và kích cỡ khác nhau.
 #### Thông tin bảng wp_posts như sau:
 <table class="widefat">
 
@@ -549,4 +554,6 @@ Customer được lưu trong wp_users và wp_usermeta(chưa thông tin các id)
 #### Truy vấn lấy ra thông tin user
 ![User Detail](img/user.png)
 ### Order
+Order được lưu trong các bảng như: wp_woocommerce_order_itemmeta, wp_woocommerce_order_items, wp_wc_orders, wp_wc_order_addresses, wp_wc_order_coupon_lookup, wp_wc_order_operational_data, wp_wc_order_product_lookup, wp_wc_orders_meta, wp_wc_order_stats, wp_comments, wp_postmeta, wp_posts
+#### Truy vấn lấy ra thông tin order
 ![Order Detail](img/order_detail.png)
