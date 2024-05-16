@@ -25,6 +25,35 @@ Woocommerce:
 - Nêu cách để attribute tạo product variants.
 - 
 - Viết câu query xoá sạch order + product
+Query xóa product:
+```
+DELETE relations.*, taxes.*, terms.*
+FROM wp_term_relationships AS relations
+INNER JOIN wp_term_taxonomy AS taxes
+ON relations.term_taxonomy_id=taxes.term_taxonomy_id
+INNER JOIN wp_terms AS terms
+ON taxes.term_id=terms.term_id
+WHERE object_id IN (SELECT ID FROM wp_posts WHERE post_type='product');
+
+DELETE FROM wp_postmeta WHERE post_id IN (SELECT ID FROM wp_posts WHERE post_type = 'product');
+DELETE FROM wp_posts WHERE post_type = 'product';
+```
+
+Query xóa orders:
+```
+DELETE FROM wp_woocommerce_order_itemmeta;
+DELETE FROM wp_woocommerce_order_items;
+DELETE FROM wp_wc_orders;
+DELETE FROM wp_wc_order_addresses;
+DELETE FROM wp_wc_order_coupon_lookup;
+DELETE FROM wp_wc_order_operational_data;
+DELETE FROM wp_wc_order_product_lookup;
+DELETE FROM wp_wc_orders_meta;
+DELETE FROM wp_wc_order_stats;
+DELETE FROM wp_comments WHERE comment_type = 'order_note';
+DELETE FROM wp_postmeta WHERE post_id IN ( SELECT ID FROM wp_posts WHERE post_type = 'shop_order_placehold' );
+DELETE FROM wp_posts WHERE post_type = 'shop_order_placehold';
+```
 
 ### Wordpress db
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
