@@ -569,7 +569,7 @@ Cách lưu ảnh của product có gì đặc biệt?
 
 Ảnh của product sẽ được lưu vào folder img/p/... trong source
 Mỗi một product sẽ có một id_image và ảnh sẽ được lưu theo quy ước: img_path = ./img/p/a/b/c/d trong đó abcd là id của image(trong bảng ps_image).
-Ví dụ: image có id 1234 thì ảnh sẽ được lưu trong ./img/p/1/2/3/4/..... như hình sau: 
+Ví dụ: image có id 24 thì ảnh sẽ được lưu trong ./img/p/2/4/..... như hình sau: 
 
 ![img](img/img_save.png)
 
