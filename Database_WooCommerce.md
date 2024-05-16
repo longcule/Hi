@@ -214,6 +214,9 @@ Sản phẩm sẽ lưu trong wp_posts và wp_postmeta và các bảng term(lưu 
 Sản phẩm sẽ có 2 loại, product và Variable Products
 - Product: Các sản phẩm đơn giản có một SKU, được vận chuyển và không có biến thể/tùy chọn. Ví dụ, một cuốn sách.
 - Variable Products: Các sản phẩm đa dạng có thể có nhiều biến thể/tùy chọn, mỗi biến thể có thể có SKU hoặc giá khác nhau. Ví dụ: một bộ quần áo có nhiều màu sắc và kích cỡ khác nhau.
+- Grouped product: Các sản phẩm liên quan tới nhau, có thể được mua riêng lẻ, ví dụ iphone được nhóm lại vì có các biến thể là 64 hay 128gb hoặc màu sắc khác nhau.
+- Digital product: Các sản phẩm số như sách điện tử, nhạc hay video.
+- External product: Các sản phẩm link từ site khác qua, có thể hiển thị trên web của mình nhưng lại đang bán ở nơi khác.
 #### Thông tin bảng wp_posts như sau:
 <table class="widefat">
 
