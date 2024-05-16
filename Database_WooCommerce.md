@@ -1,4 +1,7 @@
 # WooCommerce
+# Prestashop
+
+## WooCommerce
 ## Bài tập về cách lưu dữ liệu trong Shopping Cart
 - Sau khi đã cài đặt và tìm hiểu quá về các Shopping Cart, hãy kể tên các bảng lưu thông tin của các entity sau (Category, Product, Customer, Order) của một Shopping Cart bất kỳ (Magento, WooCommere, PrestaShop)
 
@@ -559,3 +562,36 @@ Customer được lưu trong wp_users và wp_usermeta(chưa thông tin các id)
 Order được lưu trong các bảng như: wp_woocommerce_order_itemmeta, wp_woocommerce_order_items, wp_wc_orders, wp_wc_order_addresses, wp_wc_order_coupon_lookup, wp_wc_order_operational_data, wp_wc_order_product_lookup, wp_wc_orders_meta, wp_wc_order_stats, wp_comments, wp_postmeta, wp_posts
 #### Truy vấn lấy ra thông tin order
 ![Order Detail](img/order_detail.png)
+
+
+## Prestashop
+Cách lưu ảnh của product có gì đặc biệt?
+Ảnh của product sẽ được lưu vào folder img/p/... trong source
+Mỗi một product sẽ có một id_image và ảnh sẽ được lưu theo quy ước: img_path = ./img/p/a/b/c/d trong đó abcd là id của image(trong bảng ps_image).
+Ví dụ: image có id 1234 thì ảnh sẽ được lưu trong ./img/p/1/2/3/4/..... như hình sau: 
+![img](img/img_save.png)
+Nêu cách 1 combination product được lưu Trong database?
+
+trong bảng ps_product có trường là product_type, khi add combinations product thì trường này có giá trị là combinations.
+
+trong bảng ps_product_atribute sẽ lưu mối quan hệ giữa product và atribute, qua các trường như id_product_atribute và id_product(giả sử nếu tạo product áo thun với 4 size thì trong bảng này sẽ có 4 row thể hiện liên kết giữa product và atribute)
+Trong bảng ps_product_atribute_combination sẽ thể hiện liên kết giữa id_product_atribute và id_atribute.
+
+id_atribute sẽ là key để liên kết tới các bảng chứa thông tin về atribute như ps_atribute, ps_atribute_group, ps_atribute_group_lang và ps_atribute_lang.
+
+Phân biệt attribute và feature của product.
+#### Attributes (Thuộc tính)
+- **Mục đích**: Attributes trong PrestaShop được sử dụng để định nghĩa các biến thể của sản phẩm. Thuộc tính là những đặc điểm có thể thay đổi của sản phẩm và ảnh hưởng đến sản phẩm một cách trực tiếp, thường dẫn đến việc tạo ra các tổ hợp (combinations) khác nhau của sản phẩm. Chẳng hạn, một chiếc áo có thể có các thuộc tính như màu sắc và kích cỡ.
+- **Ví dụ**: Màu sắc (đỏ, xanh, vàng), Kích cỡ (S, M, L, XL), Chất liệu (Cotton, Polyester).
+- **Quản lý Kho**: Các thuộc tính thường liên quan đến việc quản lý kho cho mỗi tổ hợp. Ví dụ, mỗi kích thước và màu sắc của một chiếc áo có thể có số lượng tồn kho riêng.
+- **Biến thể**: Attributes quan trọng trong việc xác định giá, SKU, trọng lượng, v.v., cho các biến thể cụ thể của một sản phẩm.
+
+#### Features (Tính năng)
+- **Mục đích**: Features được sử dụng để mô tả các đặc điểm cố định của sản phẩm, không thay đổi giữa các biến thể. Tính năng là những thông tin bổ sung giúp khách hàng hiểu rõ hơn về sản phẩm nhưng không ảnh hưởng đến việc tạo tổ hợp sản phẩm.
+- **Ví dụ**: Trọng lượng, Kích thước bao bì, Xuất xứ, Độ bền.
+- **Mục đích Marketing**: Tính năng thường được sử dụng để cải thiện thông tin sản phẩm cho khách hàng và tăng cường SEO. Chúng cũng hỗ trợ trong việc lọc và tìm kiếm sản phẩm trên cửa hàng trực tuyến.
+- **Không ảnh hưởng đến kho**: Tính năng không ảnh hưởng đến quản lý kho và thường không thay đổi giá cả hoặc các yếu tố quản lý khác của sản phẩm.
+
+- **Attributes**: Định nghĩa các biến thể của sản phẩm, có ảnh hưởng trực tiếp đến quản lý kho và cấu hình sản phẩm. 
+- **Features**: Cung cấp thông tin chi tiết về sản phẩm, không tạo biến thể và không ảnh hưởng đến quản lý kho.
+
