@@ -603,3 +603,34 @@ Phân biệt attribute và feature của product.
 - **Attributes**: Định nghĩa các biến thể của sản phẩm, có ảnh hưởng trực tiếp đến quản lý kho và cấu hình sản phẩm. 
 - **Features**: Cung cấp thông tin chi tiết về sản phẩm, không tạo biến thể và không ảnh hưởng đến quản lý kho.
 
+## OpenCart
+Nêu cách hoạt động của Product Filter
+
+#### 1. Tạo Bộ Lọc
+Trước tiên, admin tạo các bộ lọc trong khu vực quản lý. gồm:
+- Truy cập vào **Catalog** > **Filters** trong bảng điều khiển admin.
+- Tại đây, bạn tạo ra các nhóm bộ lọc và bộ lọc cụ thể. Ví dụ, có nhóm bộ lọc là size và có size lớn, vừa, nhỏ.
+
+#### 2. Gán Bộ Lọc cho Sản Phẩm
+Khi tạo sản phẩm, gán bộ lọc cho sản phẩm
+
+### 3. Hiển Thị Bộ Lọc trên Website
+Khi các bộ lọc được gán, sẽ hiển thị ở thanh bên trái trên website, người dùng có thể tương tác với bộ lọc.
+
+### 4. Xử Lý Bộ Lọc
+Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và trả về kết quả:
+- OpenCart sử dụng các tham số truyền vào từ các bộ lọc đã chọn để truy vấn cơ sở dữ liệu và lấy các sản phẩm phù hợp.
+- Kết quả là danh sách các sản phẩm chỉ bao gồm những mục thỏa mãn các điều kiện bộ lọc được áp dụng.
+
+Viết câu query in ra hết toàn bộ giá trị filter của product tương ứng
+
+Viết câu query xoá sạc filter liên quan đến một product với ID cho trước 
+
+
+
+
+
+
+
+
+
