@@ -1,6 +1,11 @@
 # WooCommerce
 # Prestashop
+## Cài đặt:
 
+![WooCommerce](img/woo.png)
+![Prestashop](img/presta.png)
+
+## Tìm hiểu Database
 ## WooCommerce
 ## Bài tập về cách lưu dữ liệu trong Shopping Cart
 - Sau khi đã cài đặt và tìm hiểu quá về các Shopping Cart, hãy kể tên các bảng lưu thông tin của các entity sau (Category, Product, Customer, Order) của một Shopping Cart bất kỳ (Magento, WooCommere, PrestaShop)
