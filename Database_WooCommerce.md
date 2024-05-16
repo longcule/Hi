@@ -566,18 +566,21 @@ Order được lưu trong các bảng như: wp_woocommerce_order_itemmeta, wp_wo
 
 ## Prestashop
 Cách lưu ảnh của product có gì đặc biệt?
+
 Ảnh của product sẽ được lưu vào folder img/p/... trong source
 Mỗi một product sẽ có một id_image và ảnh sẽ được lưu theo quy ước: img_path = ./img/p/a/b/c/d trong đó abcd là id của image(trong bảng ps_image).
 Ví dụ: image có id 1234 thì ảnh sẽ được lưu trong ./img/p/1/2/3/4/..... như hình sau: 
+
 ![img](img/img_save.png)
+
 Nêu cách 1 combination product được lưu Trong database?
 
-trong bảng ps_product có trường là product_type, khi add combinations product thì trường này có giá trị là combinations.
+- trong bảng ps_product có trường là product_type, khi add combinations product thì trường này có giá trị là combinations.
 
-trong bảng ps_product_atribute sẽ lưu mối quan hệ giữa product và atribute, qua các trường như id_product_atribute và id_product(giả sử nếu tạo product áo thun với 4 size thì trong bảng này sẽ có 4 row thể hiện liên kết giữa product và atribute)
+- trong bảng ps_product_atribute sẽ lưu mối quan hệ giữa product và atribute, qua các trường như id_product_atribute và id_product(giả sử nếu tạo product áo thun với 4 size thì trong bảng này sẽ có 4 row thể hiện liên kết giữa product và atribute)
 Trong bảng ps_product_atribute_combination sẽ thể hiện liên kết giữa id_product_atribute và id_atribute.
 
-id_atribute sẽ là key để liên kết tới các bảng chứa thông tin về atribute như ps_atribute, ps_atribute_group, ps_atribute_group_lang và ps_atribute_lang.
+- id_atribute sẽ là key để liên kết tới các bảng chứa thông tin về atribute như ps_atribute, ps_atribute_group, ps_atribute_group_lang và ps_atribute_lang.
 
 Phân biệt attribute và feature của product.
 #### Attributes (Thuộc tính)
