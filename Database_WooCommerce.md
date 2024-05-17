@@ -606,16 +606,23 @@ Phân biệt attribute và feature của product.
 ## OpenCart
 Nêu cách hoạt động của Product Filter
 
+- filter sau khi được tạo sẽ lưu vào bảng oc_filter, oc_filter_description, oc_filter_group và oc_filer_group_description.
+- Khi add filter vào sản phẩm, sẽ có 1 bảng biểu thị mối quan hệ giữa product và filter là bảng oc_product_filter, gồm có product_id và filter_id
+- 
 #### 1. Tạo Bộ Lọc
 Trước tiên, admin tạo các bộ lọc trong khu vực quản lý. gồm:
 - Truy cập vào **Catalog** > **Filters** trong bảng điều khiển admin.
-- Tại đây, bạn tạo ra các nhóm bộ lọc và bộ lọc cụ thể. Ví dụ, có nhóm bộ lọc là size và có size lớn, vừa, nhỏ.
+- Tại đây, tạo ra các nhóm bộ lọc và bộ lọc cụ thể. Ví dụ, có nhóm bộ lọc là size và có size lớn, vừa, nhỏ.
 
 #### 2. Gán Bộ Lọc cho Sản Phẩm
 Khi tạo sản phẩm, gán bộ lọc cho sản phẩm
 
 ### 3. Hiển Thị Bộ Lọc trên Website
 Khi các bộ lọc được gán, sẽ hiển thị ở thanh bên trái trên website, người dùng có thể tương tác với bộ lọc.
+Bật một vài setting để enable filter trên website:
+- design->layouts->category-> add thêm filter vào column
+- extensions-> Modules-> install&enable filter
+- catalog-> categories->vào từng categories( data-> enable)
 
 ### 4. Xử Lý Bộ Lọc
 Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và trả về kết quả:
@@ -624,10 +631,20 @@ Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và 
 
 Viết câu query in ra hết toàn bộ giá trị filter của product tương ứng
 
-Viết câu query xoá sạc filter liên quan đến một product với ID cho trước 
+```
+SELECT opf.product_id, opd.name, ofd.name 
+FROM oc_product_filter opf 
+LEFT JOIN oc_product_description opd ON opf.product_id = opd.product_id
+LEFT JOIN oc_filter_description ofd ON opf.filter_id = ofd.filter_id 
+```
+![img](img/product_filter.png)
 
+Viết câu query xoá sạch filter liên quan đến một product với ID cho trước 
 
-
+```
+DELETE FROM oc_product_filter
+WHERE product_id = 30;
+```
 
 
 
