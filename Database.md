@@ -26,7 +26,7 @@ Thông tin product lưu trong các bảng: products, product_category,...
   LEFT JOIN wp_terms AS terms ON terms.term_id = tt.term_id
   WHERE object_id = 100
   ```
-![query](img/query.png)
+  
 - Nêu cách để attribute tạo product variants.
 đầu tiên là tạo thuộc tính -> khi thêm thì thuộc tính sẽ được lưu vào bảng wp_term_taxonomy(term_taxonomy_id, term_id, taxonomy(loại term, với atributes thì có pa_ ở đầu),...) và wp_term(term_id, name, slug(kiểu link SEO),...). Khi thêm sản phẩm với và chọn thuộc tính vừa tạo(vd color), trong bảng wp_term_relationships sẽ thêm row mới biểu hiện mối quan hệ của sản phẩm và thuộc tính, gồm có object_id(id sản phẩm) và term_taxonomy_id(id thuộc tính), qua đây biểu hiện được sản phẩm có thuộc tính đó.
 
