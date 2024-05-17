@@ -136,8 +136,137 @@ Viết câu query xoá sạch filter liên quan đến một product với ID ch
 DELETE FROM oc_product_filter
 WHERE product_id = 30;
 ```
-# Tìm hiểu về db WooCommerce
 
+# Tìm hiểu về db OpenCart
+#### Thông tin về category được lưu trong các bảng:
+- oc_category
+- oc_category_description
+- oc_category_filter
+- oc_category_path
+- oc_category_to_layout
+- oc_category_to_store
+
+#### Thông tin về product được lưu trong:
+- oc_product
+- oc_product_atribute
+- oc_product_description
+- oc_product_discount
+- oc_product_filter
+- oc_product_image
+- oc_product_option
+- oc_product_option_value
+- oc_product_recurring
+- oc_product_related
+- oc_product_report
+- oc_product_reward
+- oc_product_special
+- oc_product_subcription
+- oc_product_to_category
+- oc_product_to_download
+- oc_product_to_layout
+- oc_product_to_store
+- oc_product_viewed
+
+#### Thông tin về customer được lưu trong:
+- oc_customer
+- oc_customer_activity
+- oc_customer_affiliate
+- oc_customer_affiliate_report
+- oc_customer_approval
+- oc_customer_group
+- oc_customer_group_description
+- oc_customer_history
+- oc_customer_ip
+- oc_customer_login
+- oc_customer_online
+- oc_customer_payment
+- oc_customer_reward
+- oc_customer_search
+- oc_customer_transaction
+- oc_customer_wishlist
+
+#### Thông tin về Order được lưu trong:
+- oc_order
+- oc_order_history
+- oc_order_option
+- oc_order_product
+- oc_order_recurring
+- oc_order_recurring_transaction
+- oc_order_shipment
+- oc_order_status
+- oc_order_subscription
+- oc_order_total
+- oc_order_voucher
+
+
+# Tìm hiểu về db PrestaShop
+
+#### Thông tin của category được lưu trong:
+- ps_category
+- ps_category_group
+- ps_category_lang
+- ps_category_product
+- ps_category_shop
+
+#### Thông tin của product được lưu trong:
+- ps_product
+- ps_product_attachment
+- ps_product_atribute
+- ps_product_atribute_combination
+- ps_product_atribute_image
+- ps_product_atribute_lang
+- ps_product_atribute_shop
+- ps_product_carrier
+- ps_product_comment
+- ps_product_comment_criterion
+- ps_product_comment_criterion_category
+- ps_product_comment_criterion_lang
+- ps_product_comment_criterion_product
+- ps_product_comment_grade
+- ps_product_comment_report
+- ps_product_comment_usefulness
+- ps_product_country_tax
+- ps_product_download
+- ps_product_group_reduction_cache
+- ps_product_lang
+- ps_product_sale
+- ps_product_shop
+- ps_product_supplier
+- ps_product_tag
+
+#### Thông tin order được lưu trong:
+- ps_orders
+- ps_order_carrier
+- ps_order_cart_rule
+- ps_order_detail
+- ps_order_detail_tax
+- ps_order_history
+- ps_order_invoice
+- ps_order_invoice_payment
+- ps_order_invoice_tax
+- ps_order_message
+- ps_order_message_lang
+- ps_order_payment
+- ps_order_return
+- ps_order_return_detail
+- ps_order_return_state
+- ps_order_return_state_lang
+- ps_order_slip
+- ps_order_slip_detail
+- ps_order_state
+- ps_order_state_lang
+
+#### Thông tin customer được lưu trong:
+- ps_customer
+- ps_customer_group
+- ps_customer_message
+- ps_customer_message_sync_imap
+- ps_customer_session
+- ps_customer_thread
+
+
+
+# Tìm hiểu về db WooCommerce
 
 ### Wordpress db
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
