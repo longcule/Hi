@@ -1,18 +1,18 @@
 # WooCommerce
 # Prestashop
+# Opencart
 ## Cài đặt:
 
 ![WooCommerce](img/woo.png)
 ![Prestashop](img/presta.png)
 ![Opencart](img/opencart.png)
 ## Tìm hiểu Database
-## WooCommerce
 ## Bài tập về cách lưu dữ liệu trong Shopping Cart
 - Sau khi đã cài đặt và tìm hiểu quá về các Shopping Cart, hãy kể tên các bảng lưu thông tin của các entity sau (Category, Product, Customer, Order) của một Shopping Cart bất kỳ (Magento, WooCommere, PrestaShop)
 
 Ví dụ: 
 Thông tin product lưu trong các bảng: products, product_category,...
-Woocommerce:
+## WooCommerce
 - Ảnh của product được lưu như nào trong database?
 
   Ảnh sẽ được save vào folder trong src và trong wp_posts có trường guid lưu đường dẫn đến ảnh.
@@ -123,7 +123,6 @@ Bật một vài setting để enable filter trên website:
 Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và trả về kết quả:
 - OpenCart sử dụng các tham số truyền vào từ các bộ lọc đã chọn để truy vấn cơ sở dữ liệu và lấy các sản phẩm phù hợp.
 - Kết quả là danh sách các sản phẩm chỉ bao gồm những mục thỏa mãn các điều kiện bộ lọc được áp dụng.
-
 Viết câu query in ra hết toàn bộ giá trị filter của product tương ứng
 
 ```
