@@ -146,7 +146,7 @@ WHERE product_id = 30;
 Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships(các bảng này kh chỉ lưu category mà còn có tag hay atributes, gọi chung là term)
 - Lưu trong wp_terms, bảng này lưu thông tin cơ bản của từng danh mục như id, tên, slug(bản thân thiện với url - kiểu đuôi url)
 - wp_term_taxnomy: lưu trữ id danh mục và loại thuật ngữ
-- wp_term_relationships: bảng tạo mối quan hệ giữa sản phẩm và danh mục, có 2 trường object_id là id sản phẩm, term_taxonomy_id là id category.
+- wp_term_relationships: bảng tạo mối quan hệ giữa sản phẩm và danh mục, có 2 trường object_id là id sản phẩm, term_taxonomy_id là id term.
 #### Bảng wp_terms
 <table class="widefat">
 
