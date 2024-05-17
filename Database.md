@@ -36,7 +36,7 @@ Query xóa product:
 DELETE relations.*
 FROM wp_term_relationships AS relations
 INNER JOIN wp_term_taxonomy AS taxes
-ON relations.term_taxonomy_id=taxes.term_taxonomy_id
+ON relations.term_taxonomy_id=taxes.term_taxonomy_id and taxes.taxonomy = 'product_cat'
 INNER JOIN wp_terms AS terms
 ON taxes.term_id=terms.term_id
 WHERE object_id IN (SELECT ID FROM wp_posts WHERE post_type='product');
