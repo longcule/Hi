@@ -33,7 +33,7 @@ Thông tin product lưu trong các bảng: products, product_category,...
 - Viết câu query xoá sạch order + product
 Query xóa product:
 ```
-DELETE relations.*, taxes.*, terms.*
+DELETE relations.*
 FROM wp_term_relationships AS relations
 INNER JOIN wp_term_taxonomy AS taxes
 ON relations.term_taxonomy_id=taxes.term_taxonomy_id
