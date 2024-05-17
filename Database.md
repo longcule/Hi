@@ -21,10 +21,10 @@ Thông tin product lưu trong các bảng: products, product_category,...
   Query:
   ```
   SELECT object_id AS product_id, tt.term_id AS category_id, name AS category_name
-  FROM wp_term_relationships AS rel
-  LEFT JOIN wp_term_taxonomy AS tt ON rel.term_taxonomy_id = tt.term_taxonomy_id
+  FROM wp_term_taxonomy AS tt
+  LEFT JOIN wp_term_relationships AS rel ON rel.term_taxonomy_id = tt.term_taxonomy_id AND tt.taxonomy ='product_cat'
   LEFT JOIN wp_terms AS terms ON terms.term_id = tt.term_id
-  WHERE object_id = 82
+  WHERE object_id = 100
   ```
 ![query](img/query.png)
 - Nêu cách để attribute tạo product variants.
