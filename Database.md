@@ -288,8 +288,6 @@ Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_r
 <td>&nbsp;
 </td></tr></tbody></table>
 
-#### lấy thông tin category trong wp_terms  
-![category](img/category.png)
 ### Product 
 Sản phẩm sẽ lưu trong wp_posts và wp_postmeta và các bảng term(lưu mối liên hệ giữa sản phẩm và term)
 - lưu trữ các thông tin chính trong wp_posts
