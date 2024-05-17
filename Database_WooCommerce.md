@@ -4,7 +4,7 @@
 
 ![WooCommerce](img/woo.png)
 ![Prestashop](img/presta.png)
-
+![Opencart](img/opencart.png)
 ## Tìm hiểu Database
 ## WooCommerce
 ## Bài tập về cách lưu dữ liệu trong Shopping Cart
@@ -64,9 +64,87 @@ DELETE FROM wp_postmeta WHERE post_id IN ( SELECT ID FROM wp_posts WHERE post_ty
 DELETE FROM wp_posts WHERE post_type = 'shop_order_placehold';
 ```
 
+## Prestashop
+Cách lưu ảnh của product có gì đặc biệt?
+
+Ảnh của product sẽ được lưu vào folder img/p/... trong source
+Mỗi một product sẽ có một id_image và ảnh sẽ được lưu theo quy ước: img_path = ./img/p/a/b/c/d trong đó abcd là id của image(trong bảng ps_image).
+Ví dụ: image có id 24 thì ảnh sẽ được lưu trong ./img/p/2/4/..... như hình sau: 
+
+![img](img/img_save.png)
+
+Nêu cách 1 combination product được lưu Trong database?
+
+- trong bảng ps_product có trường là product_type, khi add combinations product thì trường này có giá trị là combinations.
+
+- trong bảng ps_product_atribute sẽ lưu mối quan hệ giữa product và atribute, qua các trường như id_product_atribute và id_product(giả sử nếu tạo product áo thun với 4 size thì trong bảng này sẽ có 4 row thể hiện liên kết giữa product và atribute)
+Trong bảng ps_product_atribute_combination sẽ thể hiện liên kết giữa id_product_atribute và id_atribute.
+
+- id_atribute sẽ là key để liên kết tới các bảng chứa thông tin về atribute như ps_atribute, ps_atribute_group, ps_atribute_group_lang và ps_atribute_lang.
+
+Phân biệt attribute và feature của product.
+#### Attributes (Thuộc tính)
+- **Mục đích**: Attributes trong PrestaShop được sử dụng để định nghĩa các biến thể của sản phẩm. Thuộc tính là những đặc điểm có thể thay đổi của sản phẩm và ảnh hưởng đến sản phẩm một cách trực tiếp, thường dẫn đến việc tạo ra các tổ hợp (combinations) khác nhau của sản phẩm. Chẳng hạn, một chiếc áo có thể có các thuộc tính như màu sắc và kích cỡ.
+- **Ví dụ**: Màu sắc (đỏ, xanh, vàng), Kích cỡ (S, M, L, XL), Chất liệu (Cotton, Polyester).
+- **Quản lý Kho**: Các thuộc tính thường liên quan đến việc quản lý kho cho mỗi tổ hợp. Ví dụ, mỗi kích thước và màu sắc của một chiếc áo có thể có số lượng tồn kho riêng.
+- **Biến thể**: Attributes quan trọng trong việc xác định giá, SKU, trọng lượng, v.v., cho các biến thể cụ thể của một sản phẩm.
+
+#### Features (Tính năng)
+- **Mục đích**: Features được sử dụng để mô tả các đặc điểm cố định của sản phẩm, không thay đổi giữa các biến thể. Tính năng là những thông tin bổ sung giúp khách hàng hiểu rõ hơn về sản phẩm nhưng không ảnh hưởng đến việc tạo tổ hợp sản phẩm.
+- **Ví dụ**: Trọng lượng, Kích thước bao bì, Xuất xứ, Độ bền.
+- **Mục đích Marketing**: Tính năng thường được sử dụng để cải thiện thông tin sản phẩm cho khách hàng và tăng cường SEO. Chúng cũng hỗ trợ trong việc lọc và tìm kiếm sản phẩm trên cửa hàng trực tuyến.
+- **Không ảnh hưởng đến kho**: Tính năng không ảnh hưởng đến quản lý kho và thường không thay đổi giá cả hoặc các yếu tố quản lý khác của sản phẩm.
+
+- **Attributes**: Định nghĩa các biến thể của sản phẩm, có ảnh hưởng trực tiếp đến quản lý kho và cấu hình sản phẩm. 
+- **Features**: Cung cấp thông tin chi tiết về sản phẩm, không tạo biến thể và không ảnh hưởng đến quản lý kho.
+
+## OpenCart
+Nêu cách hoạt động của Product Filter
+
+- filter sau khi được tạo sẽ lưu vào bảng oc_filter, oc_filter_description, oc_filter_group và oc_filer_group_description.
+- Khi add filter vào sản phẩm, sẽ có 1 bảng biểu thị mối quan hệ giữa product và filter là bảng oc_product_filter, gồm có product_id và filter_id
+- 
+#### 1. Tạo Bộ Lọc
+Trước tiên, admin tạo các bộ lọc trong khu vực quản lý. gồm:
+- Truy cập vào **Catalog** > **Filters** trong bảng điều khiển admin.
+- Tại đây, tạo ra các nhóm bộ lọc và bộ lọc cụ thể. Ví dụ, có nhóm bộ lọc là size và có size lớn, vừa, nhỏ.
+
+#### 2. Gán Bộ Lọc cho Sản Phẩm
+Khi tạo sản phẩm, gán bộ lọc cho sản phẩm
+
+### 3. Hiển Thị Bộ Lọc trên Website
+Khi các bộ lọc được gán, sẽ hiển thị ở thanh bên trái trên website, người dùng có thể tương tác với bộ lọc.
+Bật một vài setting để enable filter trên website:
+- design->layouts->category-> add thêm filter vào column
+- extensions-> Modules-> install&enable filter
+- catalog-> categories->vào từng categories( data-> enable)
+
+### 4. Xử Lý Bộ Lọc
+Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và trả về kết quả:
+- OpenCart sử dụng các tham số truyền vào từ các bộ lọc đã chọn để truy vấn cơ sở dữ liệu và lấy các sản phẩm phù hợp.
+- Kết quả là danh sách các sản phẩm chỉ bao gồm những mục thỏa mãn các điều kiện bộ lọc được áp dụng.
+
+Viết câu query in ra hết toàn bộ giá trị filter của product tương ứng
+
+```
+SELECT opf.product_id, opd.name, ofd.name 
+FROM oc_product_filter opf 
+LEFT JOIN oc_product_description opd ON opf.product_id = opd.product_id
+LEFT JOIN oc_filter_description ofd ON opf.filter_id = ofd.filter_id 
+```
+![img](img/product_filter.png)
+
+Viết câu query xoá sạch filter liên quan đến một product với ID cho trước 
+
+```
+DELETE FROM oc_product_filter
+WHERE product_id = 30;
+```
+
 ### Wordpress db
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
 
+## Tìm hiểu về db WooCommerce
 ### Category
 Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships(các bảng này kh chỉ lưu category mà còn có tag hay atributes, gọi chung là term)
 - Lưu trong wp_terms, bảng này lưu thông tin cơ bản của từng danh mục như id, tên, slug(bản thân thiện với url - kiểu đuôi url)
@@ -567,87 +645,3 @@ Customer được lưu trong wp_users và wp_usermeta(chưa thông tin các id)
 Order được lưu trong các bảng như: wp_woocommerce_order_itemmeta, wp_woocommerce_order_items, wp_wc_orders, wp_wc_order_addresses, wp_wc_order_coupon_lookup, wp_wc_order_operational_data, wp_wc_order_product_lookup, wp_wc_orders_meta, wp_wc_order_stats, wp_comments, wp_postmeta, wp_posts
 #### Truy vấn lấy ra thông tin order
 ![Order Detail](img/order_detail.png)
-
-
-## Prestashop
-Cách lưu ảnh của product có gì đặc biệt?
-
-Ảnh của product sẽ được lưu vào folder img/p/... trong source
-Mỗi một product sẽ có một id_image và ảnh sẽ được lưu theo quy ước: img_path = ./img/p/a/b/c/d trong đó abcd là id của image(trong bảng ps_image).
-Ví dụ: image có id 24 thì ảnh sẽ được lưu trong ./img/p/2/4/..... như hình sau: 
-
-![img](img/img_save.png)
-
-Nêu cách 1 combination product được lưu Trong database?
-
-- trong bảng ps_product có trường là product_type, khi add combinations product thì trường này có giá trị là combinations.
-
-- trong bảng ps_product_atribute sẽ lưu mối quan hệ giữa product và atribute, qua các trường như id_product_atribute và id_product(giả sử nếu tạo product áo thun với 4 size thì trong bảng này sẽ có 4 row thể hiện liên kết giữa product và atribute)
-Trong bảng ps_product_atribute_combination sẽ thể hiện liên kết giữa id_product_atribute và id_atribute.
-
-- id_atribute sẽ là key để liên kết tới các bảng chứa thông tin về atribute như ps_atribute, ps_atribute_group, ps_atribute_group_lang và ps_atribute_lang.
-
-Phân biệt attribute và feature của product.
-#### Attributes (Thuộc tính)
-- **Mục đích**: Attributes trong PrestaShop được sử dụng để định nghĩa các biến thể của sản phẩm. Thuộc tính là những đặc điểm có thể thay đổi của sản phẩm và ảnh hưởng đến sản phẩm một cách trực tiếp, thường dẫn đến việc tạo ra các tổ hợp (combinations) khác nhau của sản phẩm. Chẳng hạn, một chiếc áo có thể có các thuộc tính như màu sắc và kích cỡ.
-- **Ví dụ**: Màu sắc (đỏ, xanh, vàng), Kích cỡ (S, M, L, XL), Chất liệu (Cotton, Polyester).
-- **Quản lý Kho**: Các thuộc tính thường liên quan đến việc quản lý kho cho mỗi tổ hợp. Ví dụ, mỗi kích thước và màu sắc của một chiếc áo có thể có số lượng tồn kho riêng.
-- **Biến thể**: Attributes quan trọng trong việc xác định giá, SKU, trọng lượng, v.v., cho các biến thể cụ thể của một sản phẩm.
-
-#### Features (Tính năng)
-- **Mục đích**: Features được sử dụng để mô tả các đặc điểm cố định của sản phẩm, không thay đổi giữa các biến thể. Tính năng là những thông tin bổ sung giúp khách hàng hiểu rõ hơn về sản phẩm nhưng không ảnh hưởng đến việc tạo tổ hợp sản phẩm.
-- **Ví dụ**: Trọng lượng, Kích thước bao bì, Xuất xứ, Độ bền.
-- **Mục đích Marketing**: Tính năng thường được sử dụng để cải thiện thông tin sản phẩm cho khách hàng và tăng cường SEO. Chúng cũng hỗ trợ trong việc lọc và tìm kiếm sản phẩm trên cửa hàng trực tuyến.
-- **Không ảnh hưởng đến kho**: Tính năng không ảnh hưởng đến quản lý kho và thường không thay đổi giá cả hoặc các yếu tố quản lý khác của sản phẩm.
-
-- **Attributes**: Định nghĩa các biến thể của sản phẩm, có ảnh hưởng trực tiếp đến quản lý kho và cấu hình sản phẩm. 
-- **Features**: Cung cấp thông tin chi tiết về sản phẩm, không tạo biến thể và không ảnh hưởng đến quản lý kho.
-
-## OpenCart
-Nêu cách hoạt động của Product Filter
-
-- filter sau khi được tạo sẽ lưu vào bảng oc_filter, oc_filter_description, oc_filter_group và oc_filer_group_description.
-- Khi add filter vào sản phẩm, sẽ có 1 bảng biểu thị mối quan hệ giữa product và filter là bảng oc_product_filter, gồm có product_id và filter_id
-- 
-#### 1. Tạo Bộ Lọc
-Trước tiên, admin tạo các bộ lọc trong khu vực quản lý. gồm:
-- Truy cập vào **Catalog** > **Filters** trong bảng điều khiển admin.
-- Tại đây, tạo ra các nhóm bộ lọc và bộ lọc cụ thể. Ví dụ, có nhóm bộ lọc là size và có size lớn, vừa, nhỏ.
-
-#### 2. Gán Bộ Lọc cho Sản Phẩm
-Khi tạo sản phẩm, gán bộ lọc cho sản phẩm
-
-### 3. Hiển Thị Bộ Lọc trên Website
-Khi các bộ lọc được gán, sẽ hiển thị ở thanh bên trái trên website, người dùng có thể tương tác với bộ lọc.
-Bật một vài setting để enable filter trên website:
-- design->layouts->category-> add thêm filter vào column
-- extensions-> Modules-> install&enable filter
-- catalog-> categories->vào từng categories( data-> enable)
-
-### 4. Xử Lý Bộ Lọc
-Khi một bộ lọc được chọn, hệ thống sẽ xử lý yêu cầu và trả về kết quả:
-- OpenCart sử dụng các tham số truyền vào từ các bộ lọc đã chọn để truy vấn cơ sở dữ liệu và lấy các sản phẩm phù hợp.
-- Kết quả là danh sách các sản phẩm chỉ bao gồm những mục thỏa mãn các điều kiện bộ lọc được áp dụng.
-
-Viết câu query in ra hết toàn bộ giá trị filter của product tương ứng
-
-```
-SELECT opf.product_id, opd.name, ofd.name 
-FROM oc_product_filter opf 
-LEFT JOIN oc_product_description opd ON opf.product_id = opd.product_id
-LEFT JOIN oc_filter_description ofd ON opf.filter_id = ofd.filter_id 
-```
-![img](img/product_filter.png)
-
-Viết câu query xoá sạch filter liên quan đến một product với ID cho trước 
-
-```
-DELETE FROM oc_product_filter
-WHERE product_id = 30;
-```
-
-
-
-
-
-
