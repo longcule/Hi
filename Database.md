@@ -1,13 +1,10 @@
-# WooCommerce
-# Prestashop
-# Opencart
-## Cài đặt:
+# Cài đặt:
 
 ![WooCommerce](img/woo.png)
 ![Prestashop](img/presta.png)
 ![Opencart](img/opencart.png)
-## Tìm hiểu Database
-## Bài tập về cách lưu dữ liệu trong Shopping Cart
+
+# Bài tập về cách lưu dữ liệu trong Shopping Cart
 - Sau khi đã cài đặt và tìm hiểu quá về các Shopping Cart, hãy kể tên các bảng lưu thông tin của các entity sau (Category, Product, Customer, Order) của một Shopping Cart bất kỳ (Magento, WooCommere, PrestaShop)
 
 Ví dụ: 
@@ -139,11 +136,12 @@ Viết câu query xoá sạch filter liên quan đến một product với ID ch
 DELETE FROM oc_product_filter
 WHERE product_id = 30;
 ```
+# Tìm hiểu về db WooCommerce
+
 
 ### Wordpress db
 ![WordpressDB](https://codex.wordpress.org/images/2/25/WP4.4.2-ERD.png)
 
-## Tìm hiểu về db WooCommerce
 ### Category
 Danh mục sản phẩm được lưu trong wp_terms, wp_term_taxnomy, wp_term_relationships(các bảng này kh chỉ lưu category mà còn có tag hay atributes, gọi chung là term)
 - Lưu trong wp_terms, bảng này lưu thông tin cơ bản của từng danh mục như id, tên, slug(bản thân thiện với url - kiểu đuôi url)
